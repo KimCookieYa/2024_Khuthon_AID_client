@@ -16,6 +16,7 @@
     "electron-store": "^8.2.0",
     "ps-list": "^8.1.1",
     "ps-node": "^0.1.6",
+    "react-icons": "^5.2.1",
     "systeminformation": "^5.22.8",
     "zustand": "^4.5.2"
   },

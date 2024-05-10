@@ -46,6 +46,9 @@ export default function HomePage() {
                     <Link href={`/zustand-test`} className="flex-wrap jutify-center bg-gray-500">
                         상태 관리 테스트
                     </Link>
+                    <Link href={`/mini/quiz`} className="flex-wrap jutify-center bg-gray-500">
+                        퀴즈 테스트
+                    </Link>
                 </div>
             </div>
             <div className="mt-1 w-full flex-wrap flex justify-center">

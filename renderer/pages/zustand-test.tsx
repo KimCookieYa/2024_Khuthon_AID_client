@@ -12,9 +12,16 @@ export default function ZustandTestPage() {
     const scriptInputRef = useRef<HTMLInputElement>(null);
 
 
-    // 처음 입장시 인삿말 추가
+    // 처음 입장시 호감도에 따른 인삿말 추가
     useEffect(() => {
-        misonyeoStore.addScript('안녕 동훈쿤! 반가워!');
+        misonyeoStore.resetScript();
+        if (misonyeoStore.favorability >= 50) {
+            misonyeoStore.addScript('안녕 동훈쿤! 반가워!');
+        } else if (misonyeoStore.favorability >= 20) {
+            misonyeoStore.addScript('안녕!');
+        } else {
+            misonyeoStore.addScript('안녕. 환경파괴범?');
+        }
     }, []);
 
     // 호감도 100 진엔딩 이벤트

@@ -12,6 +12,7 @@ interface IMisonyeoStore {
     changeMisonyeo: (name: string, image: StaticImageData, characterAi: string, favorability: number) => void;
     changeFavorability: (count: number) => void;
     addScript: (script: string) => void;
+    resetScript: () => void;
 }
 
 export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
@@ -28,5 +29,6 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
         setTimeout(() => {
             set(state => ({scriptList: state.scriptList.slice(1)}));
         }, 4000);
-    }
+    },
+    resetScript: () => set({scriptList: []})
 }));
