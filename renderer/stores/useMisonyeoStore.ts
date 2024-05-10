@@ -17,6 +17,7 @@ interface IMisonyeoStore {
     addDokback: (script: string) => void;
     buttonOn: boolean;
     scene: number;
+    mood: number;
 }
 
 export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
@@ -45,4 +46,5 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
     },
     buttonOn: true,
     scene: 0,
+    mood: 0
 }));
