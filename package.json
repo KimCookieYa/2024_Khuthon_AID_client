@@ -14,7 +14,9 @@
     "@types/ps-node": "^0.1.3",
     "electron-serve": "^1.3.0",
     "electron-store": "^8.2.0",
-    "ps-node": "^0.1.6"
+    "ps-list": "^8.1.1",
+    "ps-node": "^0.1.6",
+    "systeminformation": "^5.22.8"
   },
   "devDependencies": {
     "@types/node": "^20.11.16",
