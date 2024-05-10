@@ -16,7 +16,7 @@ export async function createNotificationWindow(message) {
 
     const port = process.argv[2];
     // notificationWindow.loadFile(path.join(__dirname, '../notification.html'));
-    notificationWindow.loadURL(`http://localhost:${port}/notification?message=${message}`);
+    await notificationWindow.loadURL(`http://localhost:${port}/notification?message=${message}`);
 
     const primaryDisplay = screen.getPrimaryDisplay();
     const {width, height} = primaryDisplay.workAreaSize;

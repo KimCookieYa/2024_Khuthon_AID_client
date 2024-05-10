@@ -5,20 +5,17 @@ import Image from 'next/image'
 import {IProcessInfo} from '@/renderer/types/process';
 
 export default function NextPage() {
-  
-  const [systemInfo, setSystemInfo] = useState<IProcessInfo[]>();
-
+  const [battery, setBattery] = useState(false);
   useEffect(() => {
-      const fetchSystemInfo = async () => {
+      const fetchBatteryInfo = async () => {
           if (typeof window === 'undefined') return;
 
-          window.ipc.on('get-system-info', (message: IProcessInfo[]) => {
-              console.log('message', message);
-              setSystemInfo(message);
+          window.ipc.on('get-battery-info', (message: boolean) => {
+              setBattery(message);
           })
       };
 
-      fetchSystemInfo();
+      fetchBatteryInfo();
   }, []);
   return (
     <React.Fragment>
@@ -37,15 +34,11 @@ export default function NextPage() {
         </div>
           <div className={'w-500 h-800 overflow-y-auto'}>
               {
-                  systemInfo?.map((info, index) => (
-                      <div key={index} className={'flex justify-between'}>
-                          <span>{info.pid}</span>
-                          <span>{info.command}</span>
-                          <span>{info.arguments}</span>
-                      </div>
-                  ))
+                  !battery ?
+                  <>배터리 80% 이상인데 과충전 중</>:
+                  <>충전하시면 됩니다~</>
               }
-              </div>
+          </div>
       </div>
       <div className="mt-1 w-full flex-wrap flex justify-center">
         <Link href="/home">Go to home page</Link>

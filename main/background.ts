@@ -5,6 +5,9 @@ import { createWindow } from './helpers'
 import * as os from 'node:os';
 import {lookUpProcessInfo} from '@/main/helpers/process';
 import {createNotificationWindow} from '@/main/helpers/create-notification';
+import { checkBluetooth } from './helpers/checkBluetooth';
+import { bluetoothDevices } from "systeminformation";
+import { checkBattery } from './helpers/checkBattery';
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -25,17 +28,6 @@ if (isProd) {
     },
   })
 
-
-    ipcMain.handle('get-system-info', async () => {
-        const memoryInfo = {
-            cpu: os.cpus(),
-            totalMemory: os.totalmem(),
-            freeMemory: os.freemem(),
-        };
-        const cpuInfo = os.cpus();
-        return {memoryInfo, cpuInfo};
-    });
-
     let processInfo = [];
     setTimeout(() => {
         //mainWindow.webContents.send('get-system-info', { memoryInfo: { cpu: os.cpus(), totalMemory: os.totalmem(), freeMemory: os.freemem() } });
@@ -44,6 +36,11 @@ if (isProd) {
         createNotificationWindow('정신차려 동훈쿤!');
     }, 3000);
 
+    setInterval(async ()=>{
+      mainWindow.webContents.send('get-battery-info', await checkBattery());
+      // console.log(await checkBluetooth());
+      // mainWindow.webContents.send('get-bluetooth-info', checkBluetooth());
+    }, 5000)
 
   if (isProd) {
     await mainWindow.loadURL('app://./home')
