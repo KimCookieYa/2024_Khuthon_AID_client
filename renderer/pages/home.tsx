@@ -57,6 +57,7 @@ export default function HomePage() {
       </div>
       <div className="mt-1 w-full flex-wrap flex justify-center">
         <Link href="/next">Go to next page</Link>
+          <Link href="/notification">Go to notification test page</Link>
       </div>
     </React.Fragment>
   )

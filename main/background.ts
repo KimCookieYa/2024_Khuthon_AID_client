@@ -1,9 +1,10 @@
 import path from 'path'
-import { app, ipcMain } from 'electron'
+import { app, ipcMain, Notification} from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
 import * as os from 'node:os';
 import {lookUpProcessInfo} from '@/main/helpers/process';
+import {createNotificationWindow} from '@/main/helpers/create-notification';
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -34,11 +35,13 @@ if (isProd) {
         const cpuInfo = os.cpus();
         return {memoryInfo, cpuInfo};
     });
+
     let processInfo = [];
-    setInterval(() => {
+    setTimeout(() => {
         //mainWindow.webContents.send('get-system-info', { memoryInfo: { cpu: os.cpus(), totalMemory: os.totalmem(), freeMemory: os.freemem() } });
-        lookUpProcessInfo(processInfo)
+        //lookUpProcessInfo(processInfo)
         mainWindow.webContents.send('get-system-info', processInfo);
+        createNotificationWindow('정신차려 동훈쿤!');
     }, 3000);
 
 
@@ -58,5 +61,3 @@ app.on('window-all-closed', () => {
 ipcMain.on('message', async (event, arg) => {
   event.reply('message', `${arg} World!`)
 })
-
-
