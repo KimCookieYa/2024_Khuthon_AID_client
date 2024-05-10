@@ -16,8 +16,14 @@ import { FcLikePlaceholder } from "react-icons/fc";
 export default function backgroundUI() {
   const [dokbak, setDokbak] = useState(.0);
   const misonyeoStore = useMisonyeoStore();
+  const [game, setGame] = useState(false);
+
+  useEffect(()=>{
+    misonyeoStore.buttonOn = true;
+  }, [])
 
   useEffect(() => {
+    console.log(misonyeoStore.dokbackList.length)
     if (misonyeoStore.dokbackList.length) {
       setDokbak(0.8);
     }
@@ -40,16 +46,24 @@ export default function backgroundUI() {
         <Image src={chimg} 
         alt='cha' className='w-250'/>
       </div>
+      <div className='absolute inset-0 flex flex-col gap-20 z-[10000] justify-center items-center'
+      style={game ? null : {opacity:.0}}>
+        <Link href='/mini/quiz' className=' bg-white w-200 text-black rounded-full p-10 text-center'>메일 삭제 데이트</Link>
+        <Link href='/mini/quiz' className=' bg-white w-200 text-black rounded-full p-10 text-center'>퀴즈 데이트</Link>
+      </div>
       <div className='absolute z-20 right-20 top-20 bg-white rounded-full p-20'
       style={misonyeoStore.buttonOn ? null : {opacity:.0}}>
         <VscClose color='black' size={25}/>
       </div>
-      <div className='absolute z-20 left-20 top-20 bg-white rounded-full p-20'
-      style={misonyeoStore.buttonOn ? null : {opacity:.0}}>
+      <button className='absolute z-[10000] left-20 top-20 bg-white rounded-full p-20'
+      style={misonyeoStore.buttonOn ? null : {opacity:.0}}
+      onClick={(e)=>{
+        setGame(!game);
+        }}
+      >
         <FaHeart color='red' size={25}/>
-      </div>
-      <div className='absolute flex flex-col items-center z-20 right-30 top-150'
-      style={misonyeoStore.buttonOn ? null : {opacity:.0}}>
+      </button>
+      <div className='absolute flex flex-col items-center z-20 right-30 top-150'>
         <FcLikePlaceholder size={50}/>
         <p>{misonyeoStore.favorability}%</p>
       </div>
