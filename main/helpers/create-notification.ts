@@ -1,6 +1,6 @@
-import {screen, BrowserWindowConstructorOptions, BrowserWindow} from 'electron';
-import {createWindow} from '@/main/helpers/create-window';
+import {screen} from 'electron';
 import path from 'path';
+import {createWindow} from '@/main/helpers/create-window';
 
 
 export async function createNotificationWindow(message) {
@@ -11,12 +11,10 @@ export async function createNotificationWindow(message) {
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
-frame: false,
-    })
+        frame: false,
+    });
 
-
-    const port = process.argv[2]
-    console.log('port', port);
+    const port = process.argv[2];
     // notificationWindow.loadFile(path.join(__dirname, '../notification.html'));
     notificationWindow.loadURL(`http://localhost:${port}/notification?message=${message}`);
 

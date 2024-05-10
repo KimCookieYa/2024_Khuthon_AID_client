@@ -39,7 +39,7 @@ if (isProd) {
     let processInfo = [];
     setTimeout(() => {
         //mainWindow.webContents.send('get-system-info', { memoryInfo: { cpu: os.cpus(), totalMemory: os.totalmem(), freeMemory: os.freemem() } });
-        //lookUpProcessInfo(processInfo)
+        lookUpProcessInfo(processInfo)
         mainWindow.webContents.send('get-system-info', processInfo);
         createNotificationWindow('정신차려 동훈쿤!');
     }, 3000);
