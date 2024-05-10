@@ -13,12 +13,12 @@ export const mailData: IMail[] = [
     {
         Mail_ID: 5333,
         보낸사람: ["Todoist", "no-reply@todoist.com"],
-        태그: ["석현하님의", "생산성", "통계0어제", "완료한"],
+        태그: ["석현하님의", "생산성", "통계", "완료한"],
     },
     {
         Mail_ID: 6736,
         보낸사람: ["Skyscanner", "no-reply@sender.skyscanner.com"],
-        태그: ["항공편항공편", "br", "h2", "title"],
+        태그: ["항공편항공편", "숙박", "와인"],
     },
     {
         Mail_ID: 6738,
