@@ -2,24 +2,9 @@ import React, {useEffect, useState} from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import {IProcessInfo} from '@/renderer/types/process';
 
 export default function HomePage() {
 
-    const [systemInfo, setSystemInfo] = useState<IProcessInfo[]>();
-
-    useEffect(() => {
-        const fetchSystemInfo = async () => {
-            if (typeof window === 'undefined') return;
-
-            window.ipc.on('get-system-info', (message: IProcessInfo[]) => {
-                console.log('message', message);
-                setSystemInfo(message);
-            })
-        };
-
-        fetchSystemInfo();
-    }, []);
   return (
     <React.Fragment>
       <Head>
@@ -35,25 +20,29 @@ export default function HomePage() {
             height={256}
           />
         </div>
-          <div className={'w-500 h-800 overflow-y-auto'}>
-              {
-                  systemInfo?.map((info, index) => (
-                      <div key={index} className={'flex justify-between'}>
-                          <span>{info.pid}</span>
-                          <span>{info.command}</span>
-                          <span>{info.arguments}</span>
-                      </div>
-                  ))
-              }
-              </div>
-
-        <span>⚡ Electron ⚡</span>
-        <span>+</span>
-        <span>Next.js</span>
-        <span>+</span>
-        <span>tailwindcss</span>
-        <span>=</span>
-        <span>💕 </span>
+        <div className='flex flex-col gap-4'>
+          <Link href={`/task/cpuManage`} className='flex-wrap jutify-center bg-gray-500'>
+            CPU프로세스 감시
+          </Link>
+          <Link href={`/task/bluetooth`} className='flex-wrap jutify-center bg-gray-500'>
+            블루투스 최적화
+          </Link>
+          <Link href={`/task/battery`} className='flex-wrap jutify-center bg-gray-500'>
+            과충전 방지
+          </Link>
+          <Link href={`/task/file`} className='flex-wrap jutify-center bg-gray-500'>
+            오래된 파일
+          </Link>
+          <Link href={`/task/unuseProgram`} className='flex-wrap jutify-center bg-gray-500'>
+            안쓰는 프로그램
+          </Link>
+          <Link href={`/task/startingProgram`} className='flex-wrap jutify-center bg-gray-500'>
+            시작프로그램 관리
+          </Link>
+          <Link href={`/task/mail`} className='flex-wrap jutify-center bg-gray-500'>
+            메일 관리
+          </Link>
+        </div>
       </div>
       <div className="mt-1 w-full flex-wrap flex justify-center">
         <Link href="/next">Go to next page</Link>
