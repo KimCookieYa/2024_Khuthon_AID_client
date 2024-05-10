@@ -22,6 +22,9 @@ export default function HomePage() {
                     />
                 </div>
                 <div className="flex flex-col gap-4">
+                    <Link href={`/main`} className='flex-wrap jutify-center bg-gray-500'>
+                      게임 시작  
+                    </Link>
                     <Link href={`/task/cpuManage`} className="flex-wrap jutify-center bg-gray-500">
                         CPU프로세스 감시
                     </Link>
