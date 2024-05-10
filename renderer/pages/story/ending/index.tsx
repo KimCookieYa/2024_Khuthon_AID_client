@@ -22,6 +22,7 @@ export default function HomePage() {
         console.log(misonyeoStore.scriptList);
         if (endingData[index].isGirl) {
             misonyeoStore.addScript(endingData[index].script);
+            misonyeoStore.changeMood(endingData[index].mood);
         } else {
             misonyeoStore.addDokback(endingData[index].script);
         }
@@ -36,7 +37,7 @@ export default function HomePage() {
             router.push('/main');
             misonyeoStore.buttonOn = true;
             misonyeoStore.setIsEnd(false);
-        }, 3000);
+        }, 2100);
     }
   }, [index])
 
