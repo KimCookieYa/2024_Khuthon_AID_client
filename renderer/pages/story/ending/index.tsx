@@ -27,7 +27,16 @@ export default function HomePage() {
         }
         setTimeout(() => {
             if (index+1 < endingData.length) setIndex(index+1);
-        }, 4100);
+        }, 3000);
+    }
+
+    if (index >= endingData.length) {
+        misonyeoStore.setIsEnd(true);
+        setTimeout(() => {
+            router.push('/main');
+            misonyeoStore.buttonOn = true;
+            misonyeoStore.setIsEnd(false);
+        }, 3000);
     }
   }, [index])
 

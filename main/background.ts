@@ -51,14 +51,14 @@ if (isProd) {
             createNotificationWindow('안 쓰는 프로그램 좀 삭제해줘!');
         }
     }, 5000);
-    //
-    // setInterval(async () => {
-    //     const overloadedCpuProcesses = await detectOverloadedCpuPrograms();
-    //     if (overloadedCpuProcesses?.length > 0) {
-    //         createNotificationWindow('CPU 과부하가 감지되었습니다.');
-    //     }
-    //
-    // }, 5000);
+
+    setTimeout(async () => {
+        const overloadedCpuProcesses = await detectOverloadedCpuPrograms();
+        if (overloadedCpuProcesses?.length > 0) {
+            createNotificationWindow('메일함 청소한지 좀 됐는데, 정리하자!');
+        }
+
+    }, 10000);
 
     if (isProd) {
         await mainWindow.loadURL('app://./home');

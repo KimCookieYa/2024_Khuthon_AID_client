@@ -28,6 +28,7 @@ export default function MailPage() {
     const onDeleteMail = () => {
         setCurrentMailIndex(currentMailIndex + 1);
         setDeleteCount((prev) => prev + 1);
+        misonyeoStore.changeFavorability(10);
     };
 
     useEffect(() => {

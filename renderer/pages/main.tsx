@@ -23,12 +23,12 @@ export default function HomePage() {
     };
   }, [])
 
-  useEffect(()=>{
-    if (misonyeoStore.favorability >= 100) {
-        alert('호감도가 100이 되어 미소녀가 당신에게 고백합니다.');
-        router.push('/story/ending');
-    };
-  }, [misonyeoStore.favorability])
+  // useEffect(()=>{
+  //   if (misonyeoStore.favorability >= 100) {
+  //       alert('호감도가 100이 되어 미소녀가 당신에게 고백합니다.');
+  //       router.push('/story/ending');
+  //   };
+  // }, [misonyeoStore.favorability])
 
   return (
     <React.Fragment>

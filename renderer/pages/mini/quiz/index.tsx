@@ -27,7 +27,7 @@ export default function QuizPage() {
             misonyeoStore.addScript('퀴즈를 맞췄어요!');
             setCorrectCount(correctCount + 1);
         } else {
-            misonyeoStore.changeFavorability(20);
+            misonyeoStore.changeFavorability(0);
             misonyeoStore.addScript('퀴즈를 틀렸어요... 멍청하군요!');
         }
         setCurrentQuizIndex(currentQuizIndex + 1);

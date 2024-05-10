@@ -26,5 +26,5 @@ export async function createNotificationWindow(message) {
     // Close the window after 3 seconds
     setTimeout(() => {
         notificationWindow.close();
-    }, 3000);
+    }, 7000);
 }

@@ -17,6 +17,8 @@ interface IMisonyeoStore {
     addDokback: (script: string) => void;
     buttonOn: boolean;
     scene: number;
+    isEnd: boolean;
+    setIsEnd: (isEnd: boolean) => void;
 }
 
 export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
@@ -45,4 +47,6 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
     },
     buttonOn: true,
     scene: 0,
+    isEnd: false,
+    setIsEnd: (isEnd) => set({isEnd}),
 }));
