@@ -8,6 +8,7 @@ import {createNotificationWindow} from '@/main/helpers/create-notification';
 import { checkBluetooth } from './helpers/checkBluetooth';
 import { bluetoothDevices } from "systeminformation";
 import { checkBattery } from './helpers/checkBattery';
+import getOs from './helpers/getOs';
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -38,8 +39,7 @@ if (isProd) {
 
     setInterval(async ()=>{
       mainWindow.webContents.send('get-battery-info', await checkBattery());
-      // console.log(await checkBluetooth());
-      // mainWindow.webContents.send('get-bluetooth-info', checkBluetooth());
+      console.log(await getOs());
     }, 5000)
 
     setTimeout(async () => {
@@ -54,6 +54,7 @@ if (isProd) {
         if (overloadedCpuProcesses?.length > 0) {
             createNotificationWindow('CPU 과부하가 감지되었습니다.');
         }
+
     }, 5000);
 
   if (isProd) {
