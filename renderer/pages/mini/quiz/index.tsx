@@ -36,10 +36,10 @@ export default function QuizPage() {
     useEffect(() => {
         if (currentQuizIndex >= quizData.length) {
             misonyeoStore.resetScript();
-            misonyeoStore.addScript(`퀴즈를 ${correctCount}개 맞췄어요! 3초 후에 홈으로 갑니다.`);
+            misonyeoStore.addScript(`퀴즈를 ${correctCount}개 맞췄어요! 2초 후에 홈으로 갑니다.`);
             setTimeout(() => {
                 router.push('/main');
-            }, 3000);
+            }, 2000);
         }
     }, [currentQuizIndex]);
 

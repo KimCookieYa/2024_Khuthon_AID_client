@@ -22,12 +22,13 @@ export default function HomePage() {
         console.log(misonyeoStore.scriptList);
         if (endingData[index].isGirl) {
             misonyeoStore.addScript(endingData[index].script);
+            misonyeoStore.changeMood(endingData[index].mood);
         } else {
             misonyeoStore.addDokback(endingData[index].script);
         }
         setTimeout(() => {
             if (index+1 < endingData.length) setIndex(index+1);
-        }, 4100);
+        }, 2100);
     }
   }, [index])
 

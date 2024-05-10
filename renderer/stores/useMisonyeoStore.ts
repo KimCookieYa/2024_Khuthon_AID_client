@@ -18,6 +18,7 @@ interface IMisonyeoStore {
     buttonOn: boolean;
     scene: number;
     mood: number;
+    changeMood: (count: number) => void;
 }
 
 export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
@@ -34,7 +35,7 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
         set(state => ({scriptList: [...state.scriptList, script]}));
         setTimeout(() => {
             set(state => ({scriptList: state.scriptList.slice(1)}));
-        }, 4000);
+        }, 2000);
     },
     resetScript: () => set({scriptList: []}),
     addDokback: (script) => {
@@ -42,9 +43,10 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
         set(state => ({dokbackList: [...state.dokbackList, script]}));
         setTimeout(() => {
             set(state => ({dokbackList: state.dokbackList.slice(1)}));
-        }, 4000);
+        }, 2000);
     },
     buttonOn: true,
     scene: 0,
-    mood: 0
+    mood: 0,
+    changeMood: (count) => set(state => ({mood: count})),
 }));
