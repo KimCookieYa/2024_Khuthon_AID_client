@@ -10,10 +10,6 @@ export default function HomePage() {
     <React.Fragment>
       <BackgroundUI
         key={'background'}
-        aiText={null}
-        text={null}
-        love={50}
-        mood={0}
       />
     </React.Fragment>
   )
