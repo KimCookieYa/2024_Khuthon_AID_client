@@ -10,7 +10,7 @@ export function lookUpProcessInfo(processInfo: IProcessInfo[]) {
 
         for (const process of resultList) {
             if (process) {
-                console.log('PID: %s, COMMAND: %s, ARGUMENTS: %s, MEMORY USAGE: %s', process.pid, process.command, process.arguments);
+                // console.log('PID: %s, COMMAND: %s, ARGUMENTS: %s, MEMORY USAGE: %s', process.pid, process.command, process.arguments);
                 processInfo.push({
                     pid: process.pid,
                     command: process.command,
@@ -18,6 +18,5 @@ export function lookUpProcessInfo(processInfo: IProcessInfo[]) {
                 });
             }
         }
-        processInfo = processInfo.slice(0, 10);
     });
 }
