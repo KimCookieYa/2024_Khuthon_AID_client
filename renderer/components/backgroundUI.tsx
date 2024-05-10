@@ -67,7 +67,7 @@ export default function backgroundUI() {
         <FcLikePlaceholder size={50}/>
         <p>{misonyeoStore.favorability}%</p>
       </div>
-      <div className='absolute z-20 text-center px-10 left-1/2 -translate-x-1/2 bottom-1/4 bg-black'>
+      <div className='absolute z-20 text-center px-10 left-1/2 -translate-x-1/2 bottom-1/4 bg-black text-24'>
         {misonyeoStore.scriptList.map((script, index) => <p key={index}>{script}</p>)}
       </div>
     </div>

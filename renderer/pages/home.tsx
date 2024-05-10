@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
 
 export default function HomePage() {
-
     return (
         <React.Fragment>
             <Head>

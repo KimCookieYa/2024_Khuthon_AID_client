@@ -48,7 +48,7 @@ if (isProd) {
     setTimeout(async () => {
         const unusedProcesses = await detectUnusedPrograms();
         if (unusedProcesses?.length > 0) {
-            createNotificationWindow('사용하지 않는 프로세스가 감지되었습니다.');
+            createNotificationWindow('안 쓰는 프로그램 좀 삭제해줘!');
         }
     }, 5000);
     //
@@ -64,7 +64,7 @@ if (isProd) {
         await mainWindow.loadURL('app://./home');
     } else {
         const port = process.argv[2];
-        await mainWindow.loadURL(`http://localhost:${port}/home`);
+        await mainWindow.loadURL(`http://localhost:${port}/main`);
         // mainWindow.webContents.openDevTools();
     }
 
