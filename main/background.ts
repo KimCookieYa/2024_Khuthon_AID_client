@@ -23,7 +23,7 @@ if (isProd) {
     await app.whenReady();
 
     const mainWindow = createWindow('main', {
-        width: 832,
+        width: 450,
         height: 628,
         show: true,
         webPreferences: {
@@ -65,7 +65,7 @@ if (isProd) {
     } else {
         const port = process.argv[2];
         await mainWindow.loadURL(`http://localhost:${port}/home`);
-        mainWindow.webContents.openDevTools();
+        // mainWindow.webContents.openDevTools();
     }
 
     mainWindow.on('close', (event) => {
