@@ -2,7 +2,9 @@ import React, {useEffect, useState}  from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import bgimg from '../public/images/anime-school-background-0akglzygbxchtz5t.jpg'
-import chimg from '../public/images/teletubbies.png'
+import chimg0 from '../public/images/normal.png'
+import chimg1 from '../public/images/happy.png'
+import chimg2 from '../public/images/sad.png'
 import { FaHeart } from "react-icons/fa";
 import { VscClose } from "react-icons/vsc";
 import { useMisonyeoStore } from '../stores/useMisonyeoStore';
@@ -17,6 +19,7 @@ export default function backgroundUI() {
   const [dokbak, setDokbak] = useState(.0);
   const misonyeoStore = useMisonyeoStore();
   const [game, setGame] = useState(false);
+  const im = [chimg0, chimg1, chimg2];
 
   useEffect(()=>{
     misonyeoStore.buttonOn = true;
@@ -43,8 +46,7 @@ export default function backgroundUI() {
         objectFit='cover'/>
       </div>
       <div className='absolute z-10 left-100 bottom-5'>
-        <Image src={chimg} 
-        alt='cha' className='w-250'/>
+        <Image src={im[misonyeoStore.mood]} alt='cha' className='w-250'/>
       </div>
       <div className='absolute inset-0 flex flex-col gap-20 z-[10000] justify-center items-center'
       style={game ? null : {opacity:.0}}>
