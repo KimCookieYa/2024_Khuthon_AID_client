@@ -37,25 +37,25 @@ if (isProd) {
     //     createNotificationWindow('정신차려 동훈쿤!');
     // }, 3000);
 
-    setInterval(async ()=>{
-      mainWindow.webContents.send('get-battery-info', await checkBattery());
-      console.log(await getOs());
-    }, 5000)
-
-    setTimeout(async () => {
-        const unusedProcesses = await detectUnusedPrograms();
-        if (unusedProcesses?.length > 0) {
-            createNotificationWindow('사용하지 않는 프로세스가 감지되었습니다.');
-        }
-    }, 5000);
-
-    setInterval(async () => {
-        const overloadedCpuProcesses = await detectOverloadedCpuPrograms();
-        if (overloadedCpuProcesses?.length > 0) {
-            createNotificationWindow('CPU 과부하가 감지되었습니다.');
-        }
-
-    }, 5000);
+    // setInterval(async ()=>{
+    //   mainWindow.webContents.send('get-battery-info', await checkBattery());
+    //   console.log(await getOs());
+    // }, 5000)
+    //
+    // setTimeout(async () => {
+    //     const unusedProcesses = await detectUnusedPrograms();
+    //     if (unusedProcesses?.length > 0) {
+    //         createNotificationWindow('사용하지 않는 프로세스가 감지되었습니다.');
+    //     }
+    // }, 5000);
+    //
+    // setInterval(async () => {
+    //     const overloadedCpuProcesses = await detectOverloadedCpuPrograms();
+    //     if (overloadedCpuProcesses?.length > 0) {
+    //         createNotificationWindow('CPU 과부하가 감지되었습니다.');
+    //     }
+    //
+    // }, 5000);
 
   if (isProd) {
     await mainWindow.loadURL('app://./home')
