@@ -21,7 +21,7 @@ export async function createNotificationWindow(message) {
     const primaryDisplay = screen.getPrimaryDisplay();
     const {width, height} = primaryDisplay.workAreaSize;
 
-    notificationWindow.setPosition(width - 300, height - 100);
+    notificationWindow.setPosition(width - 340, height - 100);
 
     // Close the window after 3 seconds
     setTimeout(() => {
