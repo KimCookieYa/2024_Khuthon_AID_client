@@ -46,18 +46,20 @@ if (isProd) {
     // }, 5000)
     //
     setTimeout(async () => {
-        const unusedProcesses = await detectUnusedPrograms();
-        if (unusedProcesses?.length > 0) {
-            createNotificationWindow('안 쓰는 프로그램 좀 삭제해줘!');
-        }
+        // const unusedProcesses = await detectUnusedPrograms();
+        // if (unusedProcesses?.length > 0) {
+        //     createNotificationWindow('안 쓰는 프로그램 좀 삭제해줘!');
+        // }
+
+        createNotificationWindow('안 쓰는 프로그램 좀 삭제해줘!');
     }, 5000);
 
     setTimeout(async () => {
-        const overloadedCpuProcesses = await detectOverloadedCpuPrograms();
-        if (overloadedCpuProcesses?.length > 0) {
-            createNotificationWindow('메일함 청소한지 좀 됐는데, 정리하자!');
-        }
-
+        // const overloadedCpuProcesses = await detectOverloadedCpuPrograms();
+        // if (overloadedCpuProcesses?.length > 0) {
+        //     createNotificationWindow('메일함 청소한지 좀 됐는데, 정리하자!');
+        // }
+        createNotificationWindow('메일함 청소한지 좀 됐는데, 정리하자!');
     }, 10000);
 
     if (isProd) {
