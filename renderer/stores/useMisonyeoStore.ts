@@ -13,12 +13,9 @@ interface IMisonyeoStore {
     changeMisonyeo: (name: string, image: StaticImageData, characterAi: string, favorability: number) => void;
     changeFavorability: (count: number) => void;
     addScript: (script: string) => void;
-<<<<<<< HEAD
     resetScript: () => void;
-=======
     addDokback: (script: string) => void;
     buttonOn: boolean;
->>>>>>> main-ui
 }
 
 export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
@@ -37,9 +34,7 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
             set(state => ({scriptList: state.scriptList.slice(1)}));
         }, 4000);
     },
-<<<<<<< HEAD
-    resetScript: () => set({scriptList: []})
-=======
+    resetScript: () => set({scriptList: []}),
     addDokback: (script) => {
         // 미소녀가 할 말을 추가하면 미소녀의 말풍선에 스크립트가 나타남. 4초 후에 삭제됨.
         set(state => ({scriptList: [...state.scriptList, script]}));
@@ -48,5 +43,4 @@ export const useMisonyeoStore = create<IMisonyeoStore>((set) => ({
         }, 4000);
     },
     buttonOn: true,
->>>>>>> main-ui
 }));
