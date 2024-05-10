@@ -2,6 +2,8 @@ import path from 'path'
 import { app, ipcMain } from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
+import * as os from 'node:os';
+import {lookUpProcessInfo} from '@/main/helpers/process';
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -22,6 +24,24 @@ if (isProd) {
     },
   })
 
+
+    ipcMain.handle('get-system-info', async () => {
+        const memoryInfo = {
+            cpu: os.cpus(),
+            totalMemory: os.totalmem(),
+            freeMemory: os.freemem(),
+        };
+        const cpuInfo = os.cpus();
+        return {memoryInfo, cpuInfo};
+    });
+    let processInfo = [];
+    setInterval(() => {
+        //mainWindow.webContents.send('get-system-info', { memoryInfo: { cpu: os.cpus(), totalMemory: os.totalmem(), freeMemory: os.freemem() } });
+        lookUpProcessInfo(processInfo)
+        mainWindow.webContents.send('get-system-info', processInfo);
+    }, 3000);
+
+
   if (isProd) {
     await mainWindow.loadURL('app://./home')
   } else {
@@ -38,3 +58,5 @@ app.on('window-all-closed', () => {
 ipcMain.on('message', async (event, arg) => {
   event.reply('message', `${arg} World!`)
 })
+
+
