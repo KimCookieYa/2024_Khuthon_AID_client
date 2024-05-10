@@ -9,7 +9,7 @@ export default function HomePage() {
       <Head>
         <title>Home - Nextron (with-tailwindcss)</title>
       </Head>
-      <div className="grid grid-col-1 text-2xl w-full text-center">
+      <div className="grid grid-col-1 text-2xl w-200 text-center">
         <div>
           <Image
             className="ml-auto mr-auto"
