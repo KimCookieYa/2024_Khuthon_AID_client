@@ -50,7 +50,7 @@ export default function backgroundUI() {
       </div>
       <div className='absolute inset-0 flex flex-col gap-20 z-[10000] justify-center items-center'
       style={game ? null : {opacity:.0}}>
-        <Link href='/mini/quiz' className=' bg-white w-200 text-black rounded-full p-10 text-center'>메일 삭제 데이트</Link>
+        <Link href='/mini/mail' className=' bg-white w-200 text-black rounded-full p-10 text-center'>메일 삭제 데이트</Link>
         <Link href='/mini/quiz' className=' bg-white w-200 text-black rounded-full p-10 text-center'>퀴즈 데이트</Link>
       </div>
       <div className='absolute z-20 right-20 top-20 bg-white rounded-full p-20'

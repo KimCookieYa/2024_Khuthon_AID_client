@@ -30,7 +30,7 @@ export default function HomePage() {
           misonyeoStore.addScript('배터리 너무 많이 충전하는거 아니야?');
           misonyeoStore.changeMood(2);
           setTimeout(()=>{
-            misonyeoStore.changeMood(2);
+            misonyeoStore.changeMood(0);
           }, 2000);
         }
     })
